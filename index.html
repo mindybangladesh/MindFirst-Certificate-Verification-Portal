@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindy - Document Verification Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo-container">
+                <h1 class="logo-text">Mindy</h1>
+            </div>
+            <div class="header-titles">
+                <h2 class="main-heading">Document Verification Portal</h2>
+                <p class="subheading">MindFirst Certificates</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="verification-card">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="section-header">
+                        <h3>Verify Participant Certificate</h3>
+                        <p>Enter the participant ID number to verify authenticity</p>
+                    </div>
+                    
+                    <div class="input-container">
+                        <div class="input-prefix">MindFirst-PID-</div>
+                        <input 
+                            type="text" 
+                            id="participantId" 
+                            placeholder="0026"
+                            maxlength="4"
+                            autocomplete="off"
+                        >
+                        <button id="verifyBtn" class="verify-button">
+                            <i class="fas fa-search"></i>
+                            <span>Verify</span>
+                        </button>
+                    </div>
+                    <p class="input-hint">Enter only the last digits (e.g., 0026)</p>
+                    
+                    <!-- Loading Spinner -->
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner"></div>
+                        <p>Verifying participant ID...</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div class="section-header">
+                        <h3>Verification Results</h3>
+                        <p>Authentic certificate details</p>
+                    </div>
+                    
+                    <div class="verification-badge" id="verificationBadge">
+                        <div class="badge-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="badge-content">
+                            <h4>Verified Certificate</h4>
+                            <p>This document has been verified by Mindy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="participant-info" id="participantInfo">
+                        <!-- Participant data will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>No Verification Yet</h3>
+                    <p>Enter a participant ID above to verify certificate authenticity</p>
+                </div>
+            </div>
+            
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <h3><i class="fas fa-info-circle"></i> About This Portal</h3>
+                <p>This verification system confirms the authenticity of MindFirst certificates issued to participants.</p>
+                
+                <div class="info-points">
+                    <div class="info-point">
+                        <div class="point-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="point-text">
+                            <h4>Secure Verification</h4>
+                            <p>Each certificate is cryptographically verified</p>
+                        </div>
+                    </div>
+                    <div class="info-point">
+                        <div class="point-icon"><i class="fas fa-database"></i></div>
+                        <div class="point-text">
+                            <h4>Real-time Validation</h4>
+                            <p>Data is validated against our official records</p>
+                        </div>
+                    </div>
+                    <div class="info-point">
+                        <div class="point-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="point-text">
+                            <h4>Mobile Optimized</h4>
+                            <p>Access verification on any device</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2023 MindFirst. All rights reserved. | <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message">Verification successful!</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
